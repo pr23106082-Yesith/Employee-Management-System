@@ -1,24 +1,29 @@
 package edu.icet.crm.employeeController;
 
 import edu.icet.crm.dto.Employee;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import edu.icet.crm.entity.EmployeeEntity;
+import edu.icet.crm.service.EmployeeService;
+import lombok.RequiredArgsConstructor;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
 
 @RestController
 @RequestMapping("/emp-controller")
+@RequiredArgsConstructor
 public class EmployeeController {
 
-List<Employee> employeeList = new ArrayList<>();
+ final EmployeeService service;
 
 @PostMapping("/add-employee")
 public void addEmployee(@RequestBody Employee employee){
-    employeeList.add(employee);
+    service.addemployee(employee);
+}
 
+@GetMapping("/get-emp")
+public List<EmployeeEntity> getall(){
+    return service.getall();
 }
     
 }
