@@ -22,7 +22,7 @@ public void addEmployee(@RequestBody Employee employee){
 }
 
 @GetMapping("/get-emp")
-public List<EmployeeEntity> getall(){
+public List<Employee> getall(){
     return service.getall();
 }
     
