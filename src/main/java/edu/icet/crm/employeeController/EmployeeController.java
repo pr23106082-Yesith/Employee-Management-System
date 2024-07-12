@@ -35,5 +35,11 @@ public String deleteEmployee(@PathVariable Long id){
     return "Deleted";
 }
 
+@PostMapping("/update-employee")
+public void updateEmployee(@RequestBody Employee employee){
+    service.updateEmployee(employee);
+
+}
+
 
 }

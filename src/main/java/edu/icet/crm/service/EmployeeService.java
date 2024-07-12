@@ -11,4 +11,6 @@ void addemployee(Employee employee);
     List<Employee> getall();
 
     void deleteEmployeeById(Long id);
+
+    void updateEmployee(Employee employee);
 }

@@ -38,4 +38,11 @@ public class EmployeeServiceImpl implements EmployeeService {
             repositary.deleteById(id);
         }
     }
+
+    @Override
+    public void updateEmployee(Employee employee) {
+        if(repositary.findById(employee.getId()).isPresent()){
+            repositary.save(new ObjectMapper().convertValue(employee ,  EmployeeEntity.class));
+        }
+    }
 }
