@@ -15,4 +15,6 @@ void addemployee(Employee employee);
     void updateEmployee(Employee employee);
 
     Employee findById(Long id);
+
+    Employee findByName(String name);
 }

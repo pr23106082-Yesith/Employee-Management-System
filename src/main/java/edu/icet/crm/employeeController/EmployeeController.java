@@ -46,5 +46,10 @@ public Employee findbyId(@PathVariable Long id){
     return service.findById(id);
 }
 
+    @GetMapping("/find-by-name/{firstName}")
+    public Employee findbyName(@PathVariable String firstName){
+        return service.findByName(firstName);
+    }
+
 
 }
