@@ -14,21 +14,28 @@ import java.util.List;
 @RequiredArgsConstructor
 public class EmployeeServiceImpl implements EmployeeService {
 
-    final EmployeeRepositary employeeRepositary;
+    final EmployeeRepositary repositary;
 
     @Override
     public void addemployee(Employee employee) {
         EmployeeEntity employeeEntity = new ObjectMapper().convertValue(employee, EmployeeEntity.class);
-        employeeRepositary.save(employeeEntity);
+        repositary.save(employeeEntity);
     }
 
     @Override
     public List<Employee> getall() {
         List<Employee> employeeList = new ArrayList<>();
-        List<EmployeeEntity> allEntityList = employeeRepositary.findAll();
+        List<EmployeeEntity> allEntityList = repositary.findAll();
          allEntityList.forEach(entity ->{
              employeeList.add(new ObjectMapper().convertValue(entity, Employee.class));
          });
          return employeeList;
+    }
+
+    @Override
+    public void deleteEmployeeById(Long id) {
+        if(repositary.existsById(id)){
+            repositary.deleteById(id);
+        }
     }
 }
