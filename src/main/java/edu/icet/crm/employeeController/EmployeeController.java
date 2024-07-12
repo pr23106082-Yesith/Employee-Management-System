@@ -41,5 +41,10 @@ public void updateEmployee(@RequestBody Employee employee){
 
 }
 
+@GetMapping("/find-by-id/{id}")
+public Employee findbyId(@PathVariable Long id){
+    return service.findById(id);
+}
+
 
 }
